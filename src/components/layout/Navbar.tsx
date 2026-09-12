@@ -2,19 +2,26 @@
 
 import { Menu, X, Phone } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "Hardware", href: "#products" },
   { label: "About Us", href: "#about-us" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "#services" },
+  { label: "Products", href: "#products" },
+  { label: "Contact", href: "/contact" },
 ];
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Pages without a dark hero background should always show the solid navbar style
+  const isHomePage = pathname === "/";
+  const forceSolid = !isHomePage || scrolled;
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,20 +34,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:px-6 lg:px-8 transition-all duration-300 ${scrolled
-          ? "bg-primary/80 backdrop-blur-md border-b border-white/10 shadow-lg"
-          : "bg-transparent border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:px-6 lg:px-8 transition-all duration-300 ${forceSolid
+        ? "bg-primary/80 backdrop-blur-md border-b border-white/10 shadow-lg"
+        : "bg-transparent border-b border-transparent"
         }`}
     >
       <div className="mx-auto max-w-7xl">
-        {/* Three Section Layout: Logo Left | Nav Center (FROSTED) | CTA Right */}
         <div className="flex h-16 items-center justify-between gap-6">
-          {/* Logo - Left (NO Background) */}
-          <Link
-            href="/"
-            className="shrink-0"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <Link href="/" className="shrink-0" onClick={() => setIsMenuOpen(false)}>
             <Image
               src="/logo/logo.jpeg"
               alt="Balance Bytes"
@@ -51,10 +52,9 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Navigation - Center (FROSTED GLASS PILL) */}
-          <nav className={`hidden items-center gap-6 rounded-full border px-8 py-3 backdrop-blur-xl lg:flex transition-all duration-300 ${scrolled
-              ? "border-white/20 bg-primary/50"
-              : "border-white/15 bg-primary/35"
+          <nav className={`hidden items-center gap-6 rounded-full border px-8 py-3 backdrop-blur-xl lg:flex transition-all duration-300 ${forceSolid
+            ? "border-white/20 bg-primary/50"
+            : "border-white/15 bg-primary/35"
             }`}>
             {navLinks.map((link) => (
               <Link
@@ -67,10 +67,9 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA Button - Right (Solid Color) */}
           <div className="shrink-0">
             <Link
-              href="#contact"
+              href="/contact"
               className="hidden lg:inline-flex items-center gap-2 rounded-full bg-primary-blue px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary-blue/25 whitespace-nowrap"
             >
               <Phone size={16} />
@@ -78,7 +77,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button - Right */}
           <button
             type="button"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -89,7 +87,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="border-t border-white/10 px-4 pb-4 mt-2 rounded-2xl border bg-primary/35 backdrop-blur-xl lg:hidden">
             <nav className="flex flex-col">
@@ -105,7 +102,7 @@ export default function Navbar() {
               ))}
 
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-primary-blue/25"
               >
