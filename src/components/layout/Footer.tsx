@@ -1,12 +1,6 @@
 import Link from "next/link";
-import {
-    ArrowUpRight,
-    Mail,
-    MapPin,
-    Phone,
-} from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone, } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-
 import Image from "next/image";
 
 const productLinks = [
