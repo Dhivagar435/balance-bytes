@@ -3,7 +3,6 @@
 import { ArrowRight, Wrench, HardDrive, Network, LayoutGrid } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
 import { fadeUp, staggerContainer } from "../lib/animation";
 
 const services = [
@@ -15,8 +14,7 @@ const services = [
 
 export default function Hero() {
   return (
-<section className="relative isolate min-h-screen  overflow-hidden bg-primary flex items-center py-12 sm:py-0">
-      {/* Background Video */}
+    <section className="relative isolate overflow-hidden bg-primary flex items-center py-24 md:py-28 lg:py-32 lg:min-h-screen">
       <video
         className="absolute inset-0 -z-20 h-full w-full object-cover"
         autoPlay
@@ -28,13 +26,11 @@ export default function Hero() {
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Main Overlay */}
       <div className="absolute inset-0 -z-10 bg-primary/30" />
 
-      {/* Left Content Protection */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary via-primary/70 to-primary/10" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-r from-primary via-primary/70 to-primary/10" />
 
-      {/* Decorative Glow */}
+
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -42,7 +38,7 @@ export default function Hero() {
         className="absolute right-[8%] top-[20%] -z-10 h-48 w-48 sm:h-72 sm:w-72 rounded-full bg-primary-blue/20 blur-3xl"
       />
 
-      {/* Hero Content */}
+
       <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -50,10 +46,10 @@ export default function Hero() {
           variants={staggerContainer}
           className="max-w-2xl ml-0 sm:ml-6 lg:ml-10"
         >
-          {/* Heading - Responsive Text Size */}
+
           <motion.h1
             variants={fadeUp}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight text-white"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight text-white"
           >
             Complete Hardware
             <span className="block text-primary-blue">
@@ -61,18 +57,18 @@ export default function Hero() {
             </span>
           </motion.h1>
 
-          {/* Description - Responsive Text */}
+
           <motion.p
             variants={fadeUp}
-            className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base leading-6 text-white/80"
+            className="mt-3 sm:mt-6 max-w-xl text-xs sm:text-base leading-6 text-white/80"
           >
             Desktop, server, and network hardware installation for your office — plus hardware sales when you need it.
           </motion.p>
 
-          {/* Service Offerings - Responsive Grid */}
+
           <motion.div
             variants={fadeUp}
-            className="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 lg:gap-5"
+            className="mt-5 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 lg:gap-5"
           >
             {services.map((service) => {
               const IconComponent = service.icon;
@@ -84,7 +80,7 @@ export default function Hero() {
                 >
                   <motion.div
                     whileHover={{ rotate: 10 }}
-                    className="flex-shrink-0"
+                    className="shrink-0"
                   >
                     <IconComponent size={14} className="sm:w-4 sm:h-4 text-primary-blue/70 group-hover:text-primary-blue transition-colors" />
                   </motion.div>
@@ -98,25 +94,23 @@ export default function Hero() {
             })}
           </motion.div>
 
-          {/* CTAs - Side by Side on Desktop */}
+
           <motion.div
             variants={fadeUp}
             className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:w-auto"
           >
-            {/* Primary CTA */}
+
             <Link
               href="#contact"
               className="group inline-flex items-center justify-center gap-2 rounded-lg bg-primary-blue px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-blue/25 w-full sm:w-auto whitespace-nowrap"
             >
               Get Quote
-
               <ArrowRight
                 size={16}
                 className="transition-transform duration-300 group-hover:translate-x-1 hidden sm:inline"
               />
             </Link>
 
-            {/* Secondary CTA */}
             <Link
               href="#services"
               className="group inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-primary/30 px-6 py-3 text-xs sm:text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-primary-blue hover:bg-primary/50 w-full sm:w-auto whitespace-nowrap"

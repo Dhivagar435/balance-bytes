@@ -172,8 +172,22 @@ export default function Footer() {
                             href="#"
                             className="text-blue-200 transition-colors hover:text-white"
                         >
-                            Terms & Conditions
+                            Terms of Use
                         </Link>
+
+                        <Link
+                            href="#"
+                            className="text-blue-200 transition-colors hover:text-white"
+                        >
+                           Cookie Policy
+                        </Link>
+     <Link
+                            href="#"
+                            className="text-blue-200 transition-colors hover:text-white"
+                        >
+                          Disclaimer
+                        </Link>
+                        
                     </div>
                 </div>
             </div>
