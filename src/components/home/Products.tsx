@@ -8,21 +8,21 @@ import { fadeUp, staggerContainer } from "../lib/animation";
 const categories = ["All", "Laptops", "Desktops", "Networking", "Accessories"];
 
 const products = [
-  { id: 1, name: "Business Laptop Pro", category: "Laptops", price: "₹58,000", image: "/products/product-1.jpeg" },
-  
-  { id: 2, name: "Office Desktop Tower", category: "Desktops", price: "₹42,000", image: "/products/product-3.jpeg" },
-  
-  { id: 3, name: "24-Port Network Switch", category: "Networking", price: "₹12,500", image: "/products/product-9.jpeg" },
-  
-  { id: 4, name: "Wireless Router AC1200", category: "Networking", price: "₹3,200", image: "/products/product-8.jpeg" },
-  
-  { id: 5, name: "Mechanical Keyboard", category: "Accessories", price: "₹2,800", image: "/products/product-5.jpeg"},
-  
-  { id: 6, name: "27\" Monitor FHD", category: "Accessories", price: "₹14,500", image: "/products/product-6.jpeg" },
-  
-  { id: 7, name: "Slim Business Laptop", category: "Laptops", price: "₹49,000", image: "/products/product-7.jpeg" },
-  
-  { id: 8, name: "Mini Desktop PC", category: "Desktops", price: "₹35,000", image: "/products/product-4.jpeg"},
+  { id: 1, name: "Business Laptop Pro", category: "Laptops", image: "/products/product-1.jpeg" },
+
+  { id: 2, name: "Office Desktop Tower", category: "Desktops", image: "/products/product-3.jpeg" },
+
+  { id: 3, name: "24-Port Network Switch", category: "Networking", image: "/products/product-9.jpeg" },
+
+  { id: 4, name: "Wireless Router AC1200", category: "Networking", image: "/products/product-8.jpeg" },
+
+  { id: 5, name: "Mechanical Keyboard", category: "Accessories", image: "/products/product-5.jpeg" },
+
+  { id: 6, name: "27\" Monitor FHD", category: "Accessories", image: "/products/product-6.jpeg" },
+
+  { id: 7, name: "Slim Business Laptop", category: "Laptops", image: "/products/product-7.jpeg" },
+
+  { id: 8, name: "Mini Desktop PC", category: "Desktops", image: "/products/product-4.jpeg" },
 
 ];
 
@@ -35,7 +35,7 @@ export default function Products() {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="products" className="relative py-24 bg-background overflow-hidden">
+    <section id="products" className="relative py-16 md:py-20 lg:py-24  bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -78,11 +78,10 @@ export default function Products() {
                 key={category}
                 variants={fadeUp}
                 onClick={() => setActiveCategory(category)}
-                className={`flex-shrink-0 rounded-lg px-4 py-2.5 text-sm font-medium text-left transition-all duration-300 ${
-                  activeCategory === category
-                    ? "bg-primary-blue text-white shadow-md shadow-primary-blue/25"
-                    : "bg-section-light text-muted hover:bg-primary-blue/10 hover:text-primary-blue"
-                }`}
+                className={`flex-shrink-0 rounded-lg px-4 py-2.5 text-sm font-medium text-left transition-all duration-300 ${activeCategory === category
+                  ? "bg-primary-blue text-white shadow-md shadow-primary-blue/25"
+                  : "bg-section-light text-muted hover:bg-primary-blue/10 hover:text-primary-blue"
+                  }`}
               >
                 {category}
               </motion.button>
@@ -123,9 +122,9 @@ export default function Products() {
                     </h3>
 
                     <div className="mt-3 flex items-center justify-between">
-                      <span className="text-lg font-bold text-primary">
+                      {/* <span className="text-lg font-bold text-primary">
                         {product.price}
-                      </span>
+                      </span> */}
 
                       <button className="inline-flex items-center gap-1.5 rounded-lg bg-primary-blue/10 px-3 py-2 text-xs font-semibold text-primary-blue transition-all duration-300 hover:bg-primary-blue hover:text-white">
                         <ShoppingCart size={14} />

@@ -8,8 +8,8 @@ import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "#about-us" },
-  { label: "Services", href: "#services" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Services", href: "/services" },
   { label: "Products", href: "#products" },
   { label: "Contact", href: "/contact" },
 ];
@@ -34,7 +34,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:px-6 lg:px-8 transition-all duration-300 ${forceSolid
+      className={`fixed inset-x-0 top-0 z-50 px-4 py-3 sm:px-6 lg:px-8 transition-all duration-300 ${forceSolid
         ? "bg-primary/80 backdrop-blur-md border-b border-white/10 shadow-lg"
         : "bg-transparent border-b border-transparent"
         }`}
@@ -48,7 +48,7 @@ export default function Navbar() {
               width={120}
               height={40}
               priority
-              className="h-14 w-auto object-contain rounded-xl"
+              className="h-16 w-auto object-contain rounded-xl"
             />
           </Link>
 

@@ -7,8 +7,8 @@ import { fadeUp, staggerContainer } from "../lib/animation";
 
 export default function CTA() {
   return (
-    <section className="relative py-20 bg-primary overflow-hidden border-b border-white">
-      {/* Decorative Glow */}
+    <section className="relative py-16 md:py-20 lg:py-24  mb-10 bg-primary overflow-hidden">
+
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}

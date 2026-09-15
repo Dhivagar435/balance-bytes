@@ -25,8 +25,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-section-light overflow-hidden">
-      {/* Decorative Glow */}
+    <section id="contact" className="relative py-16 md:py-20 lg:py-24 bg-section-light overflow-hidden">
+
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -36,7 +36,7 @@ export default function Contact() {
       />
 
       <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -63,7 +63,7 @@ export default function Contact() {
         </motion.div>
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-5 gap-10">
-          {/* Left - Contact Info */}
+
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -94,7 +94,7 @@ export default function Contact() {
             })}
           </motion.div>
 
-          {/* Right - Form */}
+
           <motion.div
             initial="hidden"
             whileInView="visible"
