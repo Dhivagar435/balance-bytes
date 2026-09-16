@@ -6,13 +6,13 @@ import Link from "next/link";
 
 export default function ServicesListHero() {
   return (
-    <section className="relative h-[420px] sm:h-[480px] flex items-center overflow-hidden">
+    <section className="relative h-105 md:h-120 flex items-center overflow-hidden">
       <Image
-        src="/services/service-banner.jpeg"
+        src="/services/service-banner-1.webp"
         alt="Our services"
         fill
         priority
-        className="object-cover"
+        className="object-cover object-top"
       />
       <div className="absolute inset-0 bg-primary/70" />
 

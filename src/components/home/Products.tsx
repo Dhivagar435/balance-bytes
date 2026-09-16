@@ -1,47 +1,29 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, ArrowRight, ChevronRight } from "lucide-react";
 import { fadeUp, staggerContainer } from "../lib/animation";
+import { products, categories } from "@/components/data/products-data";
 
-const categories = ["All", "Laptops", "Desktops", "Networking", "Accessories"];
-
-const products = [
-  { id: 1, name: "Business Laptop Pro", category: "Laptops", image: "/products/product-1.jpeg" },
-
-  { id: 2, name: "Office Desktop Tower", category: "Desktops", image: "/products/product-3.jpeg" },
-
-  { id: 3, name: "24-Port Network Switch", category: "Networking", image: "/products/product-9.jpeg" },
-
-  { id: 4, name: "Wireless Router AC1200", category: "Networking", image: "/products/product-8.jpeg" },
-
-  { id: 5, name: "Mechanical Keyboard", category: "Accessories", image: "/products/product-5.jpeg" },
-
-  { id: 6, name: "27\" Monitor FHD", category: "Accessories", image: "/products/product-6.jpeg" },
-
-  { id: 7, name: "Slim Business Laptop", category: "Laptops", image: "/products/product-7.jpeg" },
-
-  { id: 8, name: "Mini Desktop PC", category: "Desktops", image: "/products/product-4.jpeg" },
-
-];
-
-export default function Products() {
+export default function Products({ limit }: { limit?: number }) {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredProducts =
-    activeCategory === "All"
+  const filteredProducts = limit
+    ? products.slice(0, limit)
+    : activeCategory === "All"
       ? products
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="products" className="relative py-16 md:py-20 lg:py-24  bg-background overflow-hidden">
+    <section id="products" className="relative py-16 md:py-20 lg:py-24 bg-background">
       <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header — always shown */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={staggerContainer}
           className="max-w-2xl mx-auto text-center"
         >
@@ -51,10 +33,7 @@ export default function Products() {
             </span>
           </motion.div>
 
-          <motion.h2
-            variants={fadeUp}
-            className="text-4xl font-bold leading-tight tracking-tight text-primary sm:text-5xl"
-          >
+          <motion.h2 variants={fadeUp} className="text-4xl font-bold leading-tight tracking-tight text-primary sm:text-5xl">
             Hardware We Supply
           </motion.h2>
 
@@ -63,36 +42,34 @@ export default function Products() {
           </motion.p>
         </motion.div>
 
-        {/* Layout: Sidebar + Grid */}
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8">
-          {/* Sidebar - Categories */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainer}
-            className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0"
-          >
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                variants={fadeUp}
-                onClick={() => setActiveCategory(category)}
-                className={`flex-shrink-0 rounded-lg px-4 py-2.5 text-sm font-medium text-left transition-all duration-300 ${activeCategory === category
-                  ? "bg-primary-blue text-white shadow-md shadow-primary-blue/25"
-                  : "bg-section-light text-muted hover:bg-primary-blue/10 hover:text-primary-blue"
-                  }`}
-              >
-                {category}
-              </motion.button>
-            ))}
-          </motion.div>
-
+        {/* Layout: Sidebar only shown on full listing page */}
+        <div className={limit ? "mt-16" : "mt-16 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8"}>
+          {!limit && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={staggerContainer}
+              className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 lg:sticky lg:top-24 lg:self-start"
+            >
+              {categories.map((category) => (
+                <motion.button
+                  key={category}
+                  variants={fadeUp}
+                  onClick={() => setActiveCategory(category)}
+                  className={`flex-shrink-0 flex items-center justify-between gap-2 rounded-lg px-4 py-2.5 text-sm font-medium text-left transition-all duration-300 ${activeCategory === category
+                      ? "bg-primary-blue text-white shadow-md shadow-primary-blue/25"
+                      : "bg-section-light text-muted hover:bg-primary-blue/10 hover:text-primary-blue"
+                    }`}
+                >
+                  {category}
+                  {activeCategory === category && <ChevronRight size={16} />}
+                </motion.button>
+              ))}
+            </motion.div>
+          )}
           {/* Product Grid */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
-          >
+          <motion.div layout className={`grid grid-cols-1 sm:grid-cols-2 ${limit ? "lg:grid-cols-4" : "xl:grid-cols-3"} gap-6`}>
             <AnimatePresence mode="popLayout">
               {filteredProducts.map((product) => (
                 <motion.div
@@ -104,40 +81,52 @@ export default function Products() {
                   transition={{ duration: 0.3 }}
                   className="group relative overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all duration-300 hover:border-primary-blue/40 hover:shadow-xl hover:shadow-primary-blue/10"
                 >
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden bg-section-light">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${product.image})` }}
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5">
-                    <span className="text-xs font-medium text-primary-blue">
-                      {product.category}
-                    </span>
-                    <h3 className="mt-1 text-base font-semibold text-primary">
-                      {product.name}
-                    </h3>
-
-                    <div className="mt-3 flex items-center justify-between">
-                      {/* <span className="text-lg font-bold text-primary">
-                        {product.price}
-                      </span> */}
-
-                      <button className="inline-flex items-center gap-1.5 rounded-lg bg-primary-blue/10 px-3 py-2 text-xs font-semibold text-primary-blue transition-all duration-300 hover:bg-primary-blue hover:text-white">
-                        <ShoppingCart size={14} />
-                        Enquire
-                      </button>
+                  <Link href={`/products/${product.slug}`}>
+                    <div className="relative h-48 overflow-hidden bg-section-light">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        style={{ backgroundImage: `url(${product.image})` }}
+                      />
                     </div>
-                  </div>
+
+                    <div className="p-5">
+                      <span className="text-xs font-medium text-primary-blue">{product.category}</span>
+                      <h3 className="mt-1 text-base font-semibold text-primary">{product.name}</h3>
+
+                      <div className="mt-3 flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-primary-blue/10 px-3 py-2 text-xs font-semibold text-primary-blue transition-all duration-300 group-hover:bg-primary-blue group-hover:text-white">
+                          <ShoppingCart size={14} />
+                          View Details
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
                 </motion.div>
-                
               ))}
             </AnimatePresence>
           </motion.div>
         </div>
+
+        {/* Explore More Button — only on homepage */}
+        {limit && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={staggerContainer}
+            className="mt-12 flex justify-center"
+          >
+            <motion.div variants={fadeUp}>
+              <Link
+                href="/products"
+                className="group inline-flex items-center gap-2 rounded-lg bg-primary-blue px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-blue/25"
+              >
+                Explore More Products
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   );

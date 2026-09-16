@@ -13,9 +13,9 @@ const productLinks = [
 ];
 
 const companyLinks = [
-    { label: "About Us", href: "#about" },
+    { label: "About Us", href: "#about-us" },
     { label: "Products", href: "#products" },
-    { label: "Brands", href: "#brands" },
+    { label: "Services", href: "#services" },
     { label: "Contact Us", href: "#contact" },
 ];
 
@@ -29,7 +29,7 @@ export default function Footer() {
                     <div>
                         <Link href="/" className="inline-flex items-center gap-2">
                             <Image
-                                src="/logo/logo.jpeg"
+                                src="/logo/logo.webp"
                                 alt="Balance Bytes"
                                 width={160}
                                 height={50}
@@ -42,33 +42,6 @@ export default function Footer() {
                             Your trusted destination for computers, hardware components,
                             peripherals and technology accessories.
                         </p>
-
-                        {/* Social Links */}
-                        <div className="mt-6 flex items-center gap-3">
-                            <a
-                                href="#"
-                                aria-label="Facebook"
-                                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
-                            >
-                                <FaFacebook size={17} />
-                            </a>
-
-                            <a
-                                href="#"
-                                aria-label="Instagram"
-                                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
-                            >
-                                <FaInstagram size={17} />
-                            </a>
-
-                            <a
-                                href="#"
-                                aria-label="LinkedIn"
-                                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
-                            >
-                                <FaLinkedin size={17} />
-                            </a>
-                        </div>
                     </div>
 
                     {/* Products */}
@@ -179,18 +152,54 @@ export default function Footer() {
                             href="#"
                             className="text-blue-200 transition-colors hover:text-white"
                         >
-                           Cookie Policy
+                            Cookie Policy
                         </Link>
-     <Link
+                        <Link
                             href="#"
                             className="text-blue-200 transition-colors hover:text-white"
                         >
-                          Disclaimer
+                            Disclaimer
                         </Link>
-                        
+
                     </div>
                 </div>
             </div>
         </footer>
     );
 }
+
+
+
+
+
+
+
+
+
+
+{/* Social Links */ }
+{/* <div className="mt-6 flex items-center gap-3">
+                            <a
+                                href="#"
+                                aria-label="Facebook"
+                                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
+                            >
+                                <FaFacebook size={17} />
+                            </a>
+
+                            <a
+                                href="#"
+                                aria-label="Instagram"
+                                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
+                            >
+                                <FaInstagram size={17} />
+                            </a>
+
+                            <a
+                                href="#"
+                                aria-label="LinkedIn"
+                                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
+                            >
+                                <FaLinkedin size={17} />
+                            </a>
+                        </div> */}

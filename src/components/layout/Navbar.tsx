@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Services", href: "/services" },
-  { label: "Products", href: "#products" },
+  { label: "Products", href: "/products" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -43,7 +43,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between gap-6">
           <Link href="/" className="shrink-0" onClick={() => setIsMenuOpen(false)}>
             <Image
-              src="/logo/logo.jpeg"
+              src="/logo/logo.webp"
               alt="Balance Bytes"
               width={120}
               height={40}

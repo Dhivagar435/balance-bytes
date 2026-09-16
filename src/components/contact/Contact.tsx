@@ -30,7 +30,7 @@ export default function Contact() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 1.2 }}
         className="absolute left-[10%] top-[15%] -z-10 h-72 w-72 rounded-full bg-primary-blue/10 blur-3xl"
       />
@@ -40,7 +40,7 @@ export default function Contact() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={staggerContainer}
           className="max-w-2xl mx-auto text-center"
         >
@@ -67,7 +67,7 @@ export default function Contact() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
             className="lg:col-span-2 flex flex-col gap-5"
           >
@@ -98,7 +98,7 @@ export default function Contact() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             variants={fadeUp}
             className="lg:col-span-3 rounded-2xl border border-border bg-background p-8 shadow-sm"
           >

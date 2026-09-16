@@ -15,7 +15,7 @@ export default function AboutStory() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
             className="relative h-[440px] sm:h-[540px] lg:h-[600px] w-full max-w-[480px] mx-auto"
           >
@@ -28,7 +28,7 @@ export default function AboutStory() {
             >
               <div className="overflow-hidden rounded-[15px]">
                 <Image
-                  src="/about/about-1.png"
+                  src="/about/about-1.webp"
                   alt="Hardware install team planning"
                   width={600}
                   height={620}
@@ -47,7 +47,7 @@ export default function AboutStory() {
             >
               <div className="overflow-hidden rounded-[15px] ring-8 ring-section-light">
                 <Image
-                  src="/about/about-5.png"
+                  src="/about/about-5.webp"
                   alt="On-site hardware setup"
                   width={500}
                   height={400}
@@ -61,7 +61,7 @@ export default function AboutStory() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
           >
             <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-4">

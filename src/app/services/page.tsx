@@ -10,7 +10,7 @@ export default function ServicesPage() {
       <Navbar />
       <main>
         <ServicesListHero />
-        <Services />
+        <Services  />
         <CTA />
       </main>
       <Footer />

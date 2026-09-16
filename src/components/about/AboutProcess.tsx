@@ -7,19 +7,19 @@ import { fadeUp, staggerContainer } from "../lib/animation";
 const steps = [
   {
     number: "01",
-    image: "/about/about-process-1.jpg",
+    image: "/about/about-process-1.webp",
     title: "Site Assessment",
     description: "We visit your site to understand space, power, and network requirements before recommending hardware.",
   },
   {
     number: "02",
-    image: "/about/about-process-2.jpg",
+    image: "/about/about-process-2.webp",
     title: "Sourcing & Installation",
     description: "We source genuine, quality-tested equipment and install it on-site at a time that works for you.",
   },
   {
     number: "03",
-    image: "/about/about-process-3.jpg",
+    image: "/about/about-process-3.webp",
     title: "Testing & Ongoing Support",
     description: "Every setup is tested before handover, with post-setup support available whenever issues come up.",
   },
@@ -32,7 +32,7 @@ export default function AboutProcess() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={staggerContainer}
           className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
         >
@@ -50,7 +50,7 @@ export default function AboutProcess() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={staggerContainer}
           className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6"
         >

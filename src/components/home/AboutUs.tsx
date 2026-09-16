@@ -20,7 +20,7 @@ export default function AboutUs() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 1.2 }}
         className="absolute right-[5%] bottom-[10%] -z-10 h-72 w-72 rounded-full bg-primary-blue/10 blur-3xl"
       />
@@ -31,7 +31,7 @@ export default function AboutUs() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
           >
             <motion.div variants={fadeUp} className="inline-flex mb-4">
@@ -81,7 +81,7 @@ export default function AboutUs() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
             className="relative h-[440px] sm:h-[540px] lg:h-[600px] w-full max-w-[480px] mx-auto"
           >
@@ -95,7 +95,7 @@ export default function AboutUs() {
             >
               <div className="overflow-hidden rounded-[30px]">
                 <Image
-                  src="/about/about-1.png"
+                  src="/about/about-1.webp"
                   alt="Team member at desk"
                   width={600}
                   height={620}
@@ -111,7 +111,7 @@ export default function AboutUs() {
               className="absolute bottom-0 left-0 w-[58%] z-20"
             >
               <Image
-                src="/about/about-5.png"
+                src="/about/about-5.webp"
                 alt="Team collaboration"
                 width={500}
                 height={400}

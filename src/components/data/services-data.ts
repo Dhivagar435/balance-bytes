@@ -15,7 +15,7 @@ export const services: Service[] = [
     description:
       "Reliable hardware installation and setup tailored to your business needs.",
     image: "/services/it-hardware.webp",
-    banner: "/services/service-banner.jpeg",
+    banner: "/services/service-banner-1.webp",
     icon: "Cpu",
     details:
       "We handle end-to-end IT hardware setup — desktops, laptops, peripherals — sourced from genuine, quality-tested suppliers and installed on-site by certified technicians.",
@@ -26,7 +26,7 @@ export const services: Service[] = [
     description:
       "Scalable and secure cloud solutions for your business in the digital era.",
     image: "/services/Cloud-solutions.webp",
-    banner: "/services/service-banner.jpeg",
+    banner: "/services/service-banner-1.webp",
     icon: "Cloud",
     details:
       "From migration to ongoing management, we set up scalable cloud infrastructure that grows with your business, with security built in from day one.",
@@ -37,7 +37,7 @@ export const services: Service[] = [
     description:
       "Protect your business with end-to-end information security setup.",
     image: "/services/Information-security.webp",
-    banner: "/services/service-banner.jpeg",
+    banner: "/services/service-banner-1.webp",
     icon: "ShieldCheck",
     details:
       "We assess your current setup and implement layered security — firewalls, access control, monitoring — to keep your business protected.",
@@ -48,7 +48,7 @@ export const services: Service[] = [
     description:
       "Complete server installation and configuration for smooth operations.",
     image: "/services/server-setup.webp",
-    banner: "/services/service-banner.jpeg",
+    banner: "/services/service-banner-1.webp",
     icon: "HardDrive",
     details:
       "Full server installation and configuration — from single on-site servers to multi-server environments — tested and handed over ready to run.",
@@ -59,7 +59,7 @@ export const services: Service[] = [
     description:
       "Wired and wireless network infrastructure setup for seamless connectivity.",
     image: "/services/network-setup.webp",
-    banner: "/services/service-banner.jpeg",
+    banner: "/services/service-banner-1.webp",
     icon: "Network",
     details:
       "We design and install wired and wireless network infrastructure suited to your office layout, ensuring reliable connectivity throughout.",
@@ -69,7 +69,7 @@ export const services: Service[] = [
     name: "DataCenter Solution",
     description: "End-to-end datacenter setup and infrastructure planning.",
     image: "/services/datacenter.webp",
-    banner: "/services/service-banner.jpeg",
+    banner: "/services/service-banner-1.webp",
     icon: "Server",
     details:
       "From planning to installation, we build out datacenter infrastructure designed for reliability, cooling, and future scalability.",

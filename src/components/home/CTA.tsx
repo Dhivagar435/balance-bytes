@@ -7,12 +7,12 @@ import { fadeUp, staggerContainer } from "../lib/animation";
 
 export default function CTA() {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24  mb-10 bg-primary overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-24 bg-primary overflow-hidden border-b border-white">
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 1.2 }}
         className="absolute right-[10%] top-1/2 -translate-y-1/2 -z-10 h-80 w-80 rounded-full bg-primary-blue/20 blur-3xl"
       />
@@ -21,7 +21,7 @@ export default function CTA() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={staggerContainer}
           className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left gap-8"
         >

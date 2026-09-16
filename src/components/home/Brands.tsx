@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "../lib/animation";
@@ -17,12 +16,12 @@ const brands = [
 
 export default function Brands() {
   return (
-    <section className="relative  py-16 md:py-20 lg:py-24  bg-background overflow-hidden">
+    <section id="brands" className="relative  py-16 md:py-20 lg:py-24  bg-background overflow-hidden">
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 1.2 }}
         className="absolute right-[10%] top-[10%] -z-10 h-72 w-72 rounded-full bg-primary-blue/10 blur-3xl"
       />
@@ -32,7 +31,7 @@ export default function Brands() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={staggerContainer}
           className="max-w-2xl mx-auto text-center"
         >
@@ -76,7 +75,7 @@ export default function Brands() {
                 alt={brand.name}
                 width={100}
                 height={48}
-                style={{ width: "auto", height: "auto" }}
+                // style={{ width: "auto", height: "auto" }}
                 className="h-24 w-auto object-contain  transition-all duration-300 rounded-xl"
               />
             </div>

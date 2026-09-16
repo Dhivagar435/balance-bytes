@@ -8,7 +8,7 @@ import { Service } from "@/components/data/services-data";
 export default function ServiceHero({ service }: { service: Service }) {
   return (
     <section className="relative h-[420px] sm:h-[480px] flex items-center overflow-hidden">
-      <Image src={service.banner} alt={service.name} fill priority className="object-cover" />
+      <Image src={service.banner} alt={service.name} fill priority className="object-cover object-top" />
       <div className="absolute inset-0 bg-primary/70" />
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 text-center">

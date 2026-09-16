@@ -4,12 +4,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function AboutHero() {
+export default function ProductsListHero() {
   return (
     <section className="relative h-[420px] sm:h-[480px] flex items-center overflow-hidden">
       <Image
-        src="/about/about-banner.webp"
-        alt="Hardware setup team at work"
+        src="/products/product-banner.webp"
+        alt="Our products"
         fill
         priority
         className="object-cover object-top"
@@ -23,11 +23,9 @@ export default function AboutHero() {
           transition={{ duration: 0.6 }}
           className="flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold tracking-wide text-white/80"
         >
-          <Link href="/" className="hover:text-white transition-colors">
-            HOME
-          </Link>
+          <Link href="/" className="hover:text-white transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-primary-blue">ABOUT US</span>
+          <span className="text-primary-blue">PRODUCTS</span>
         </motion.div>
 
         <motion.h1
@@ -36,7 +34,7 @@ export default function AboutHero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
         >
-          About Us
+          Our Products
         </motion.h1>
       </div>
     </section>
